@@ -7,7 +7,6 @@
 <title>The Grand Brooklyn Opera House</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<style>a,a:link,a:visited,a:hover,a:active{color:inherit!important;text-decoration:none!important;-webkit-text-fill-color:inherit!important;}</style>
 <style>
 :root{
   --bg:#1a0a0d;--bg2:#200d10;--bg3:#261014;--surface:#2c1218;--surface2:#321518;
@@ -18,8 +17,6 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-button{font-family:inherit;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg2);}::-webkit-scrollbar-thumb{background:var(--gold);}
 .wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
 .page{display:none;}.page.active{display:block;}
@@ -29,28 +26,27 @@ button{font-family:inherit;}
 /* ── HEADER ── */
 #hdr{position:fixed;top:0;left:0;right:0;z-index:800;background:rgba(22,8,11,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(–border);}
 .hdr-top{max-width:1100px;margin:0 auto;padding:8px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(184,150,62,.08);}
-.hdr-top-text{font-size:11px;color:var(–muted);}
+.hdr-top-text,.hdr-top-link{font-size:11px;color:var(–muted);cursor:pointer;background:none;border:none;font-family:var(–sans);transition:color .2s;}
+.hdr-top-link:hover{color:var(–gold-hi);}
 .hdr-top-links{display:flex;gap:24px;}
-.hdr-top-links a{font-size:11px;color:var(–muted);transition:color .2s;cursor:pointer;}
-.hdr-top-links a:hover{color:var(–gold-hi);}
 .hdr-main{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .site-logo{cursor:pointer;}.site-logo:hover{opacity:.85;}
 .logo-name{font-family:var(–serif);font-size:17px;font-weight:700;color:var(–white);letter-spacing:.3px;line-height:1;}
 .logo-tag{font-size:10px;color:var(–muted);letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;}
 .main-nav{display:flex;align-items:center;gap:4px;}
-.main-nav a{font-size:12px;font-weight:500;color:var(–white-dim);padding:8px 12px;transition:color .2s;cursor:pointer;}
-.main-nav a:hover,.main-nav a.on{color:var(–white);}
-.nav-tix{background:var(–gold);color:var(–bg)!important;-webkit-text-fill-color:var(–bg)!important;font-weight:600!important;font-size:11px!important;padding:9px 20px!important;transition:background .2s,transform .15s!important;margin-left:8px;}
-.nav-tix:hover{background:var(–gold-hi)!important;transform:translateY(-1px);}
+.nav-item{font-size:12px;font-weight:500;color:var(–white-dim);padding:8px 12px;transition:color .2s;cursor:pointer;background:none;border:none;font-family:var(–sans);}
+.nav-item:hover,.nav-item.on{color:var(–white);}
+.nav-tix{background:var(–gold);color:#1a0a0d;font-weight:700;font-size:11px;padding:9px 20px;transition:background .2s,transform .15s;margin-left:8px;cursor:pointer;border:none;font-family:var(–sans);}
+.nav-tix:hover{background:var(–gold-hi);transform:translateY(-1px);}
 
 /* ── BUTTONS ── */
 .btn{display:inline-block;font-family:var(–sans);font-size:12px;font-weight:600;letter-spacing:1px;padding:13px 32px;border:none;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.btn-primary{background:var(–gold);color:var(–bg)!important;-webkit-text-fill-color:var(–bg)!important;}
-.btn-primary:hover{background:var(–gold-hi);transform:translateY(-1px);box-shadow:0 6px 24px rgba(184,150,62,.2);}
-.btn-secondary{background:transparent;color:var(–white)!important;-webkit-text-fill-color:var(–white)!important;border:1px solid rgba(245,237,224,.25);}
-.btn-secondary:hover{border-color:rgba(245,237,224,.5);transform:translateY(-1px);}
-.btn-ghost{background:transparent;color:var(–white-dim)!important;-webkit-text-fill-color:var(–white-dim)!important;border:1px solid var(–border-hi);font-size:11px;}
-.btn-ghost:hover{color:var(–white)!important;-webkit-text-fill-color:var(–white)!important;border-color:rgba(184,150,62,.6);}
+.btn-gold{background:var(–gold);color:#1a0a0d;}
+.btn-gold:hover{background:var(–gold-hi);transform:translateY(-1px);box-shadow:0 6px 24px rgba(184,150,62,.2);}
+.btn-outline{background:transparent;color:var(–white);border:1px solid rgba(245,237,224,.3);}
+.btn-outline:hover{border-color:rgba(245,237,224,.6);transform:translateY(-1px);}
+.btn-dim{background:transparent;color:var(–white-dim);border:1px solid var(–border-hi);font-size:11px;}
+.btn-dim:hover{color:var(–white);border-color:rgba(184,150,62,.6);}
 .btn-sm{padding:9px 20px;font-size:11px;}
 
 /* ── PAGE HEADER ── */
@@ -61,15 +57,13 @@ button{font-family:inherit;}
 .page-header p{font-size:17px;color:var(–white-dim);font-weight:300;line-height:1.7;max-width:560px;}
 
 /* ══ HOME ══ */
-.hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
-.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 40px 100px;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;}
-.hero-left{animation:fadeUp .9s ease both;}
+.hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 40px 100px;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;animation:fadeUp .9s ease both;}
 .hero-season{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
 .hero-season::before{content:’’;width:24px;height:1px;background:var(–gold);}
 .hero-h1{font-family:var(–serif);font-size:clamp(40px,5vw,68px);font-weight:700;line-height:1.1;color:var(–white);margin-bottom:18px;letter-spacing:-.5px;}
 .hero-desc{font-size:16px;line-height:1.8;color:var(–white-dim);font-weight:300;margin-bottom:32px;max-width:460px;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.hero-right{animation:fadeUp .9s ease .2s both;}
 .show-card{background:var(–surface);border:1px solid var(–border);overflow:hidden;}
 .show-card-img{height:240px;background:linear-gradient(145deg,#2d0c14,#180608,#240a12);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .show-card-img::after{content:’’;position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(–surface) 100%);}
@@ -185,8 +179,8 @@ button{font-family:inherit;}
 .footer-brand .logo-tag{margin-bottom:12px;}
 .footer-brand p{font-size:13px;color:var(–muted);line-height:1.75;font-weight:300;}
 .footer-col h4{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:14px;}
-.footer-col a{display:block;font-size:13px;color:var(–muted);margin-bottom:8px;transition:color .2s;cursor:pointer;}
-.footer-col a:hover{color:var(–white-dim);}
+.footer-link{display:block;font-size:13px;color:var(–muted);margin-bottom:8px;transition:color .2s;cursor:pointer;background:none;border:none;font-family:var(–sans);text-align:left;padding:0;}
+.footer-link:hover{color:var(–white-dim);}
 .footer-bottom{border-top:1px solid var(–border);padding-top:18px;display:flex;justify-content:space-between;align-items:center;}
 .footer-bottom p{font-size:11px;color:var(–muted);}
 
@@ -197,15 +191,17 @@ button{font-family:inherit;}
 .modal-hdr{padding:24px 32px 20px;border-bottom:1px solid var(–border);position:sticky;top:0;background:var(–bg2);z-index:1;display:flex;justify-content:space-between;align-items:flex-start;}
 .modal-title{font-family:var(–serif);font-size:20px;font-weight:700;color:var(–white);margin-bottom:3px;letter-spacing:-.2px;}
 .modal-sub{font-size:13px;color:var(–white-dim);font-style:italic;}
-.modal-close{background:none;border:none;color:var(–muted);font-size:22px;cursor:pointer;transition:color .2s;flex-shrink:0;padding:2px;}
+.modal-close{background:none;border:none;color:var(–muted);font-size:24px;cursor:pointer;transition:color .2s;flex-shrink:0;line-height:1;}
 .modal-close:hover{color:var(–white);}
 .modal-body{padding:24px 32px 32px;}
+
+/* Steps */
 .step-bar{display:flex;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(–border);}
 .step-item{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(–muted);}
 .step-item.active{color:var(–white);}
 .step-item.done{color:var(–gold);}
 .step-num{width:20px;height:20px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;}
-.step-item.done .step-num{background:var(–gold);border-color:var(–gold);color:var(–bg);}
+.step-item.done .step-num{background:var(–gold);border-color:var(–gold);color:#1a0a0d;}
 .step-item.active .step-num{border-color:var(–white);color:var(–white);}
 .step-conn{flex:1;height:1px;background:var(–border);margin:0 10px;}
 .bpage{display:none;}.bpage.active{display:block;}
@@ -214,10 +210,10 @@ button{font-family:inherit;}
 .finp{width:100%;background:var(–surface);border:1px solid var(–border);color:var(–white);font-family:var(–sans);font-size:15px;padding:11px 14px;outline:none;transition:border-color .2s;margin-bottom:14px;-webkit-appearance:none;border-radius:0;}
 .finp:focus{border-color:var(–gold);}
 .finp::placeholder{color:rgba(201,184,154,.25);}
-.finp option{background:var(–surface);}
+.finp option{background:var(–surface);color:var(–white);}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 
-/* ══ TICKET TIERS ══ */
+/* Ticket tiers */
 .tix-opts{border:1px solid var(–border);margin-bottom:14px;}
 .tix-opt{display:flex;justify-content:space-between;align-items:center;padding:14px 17px;border-bottom:1px solid rgba(184,150,62,.08);transition:background .15s;cursor:pointer;}
 .tix-opt:hover{background:var(–surface);}
@@ -225,38 +221,31 @@ button{font-family:inherit;}
 .tix-opt.selected{background:rgba(184,150,62,.08);border-left:2px solid var(–gold);}
 .to-info h4{font-family:var(–serif);font-size:15px;font-weight:700;color:var(–white);margin-bottom:2px;}
 .to-info p{font-size:12px;color:var(–muted);}
-.to-badge{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:rgba(184,150,62,.15);color:var(–gold);padding:2px 8px;margin-left:8px;border-radius:0;}
-.to-right{display:flex;align-items:center;gap:13px;}
-.to-price{font-family:var(–serif);font-size:17px;font-weight:700;color:var(–gold-hi);min-width:50px;text-align:right;}
-.qty{display:flex;align-items:center;border:1px solid var(–border);}
-.qty-btn{width:28px;height:28px;background:transparent;border:none;color:var(–gold-hi);font-size:16px;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;}
-.qty-btn:hover{background:rgba(184,150,62,.1);}
-.qty-val{width:30px;text-align:center;font-size:13px;color:var(–white);border-left:1px solid var(–border);border-right:1px solid var(–border);line-height:28px;font-weight:500;}
+.to-badge{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:rgba(184,150,62,.15);color:var(–gold);padding:2px 8px;margin-left:8px;}
+.to-price{font-family:var(–serif);font-size:17px;font-weight:700;color:var(–gold-hi);}
 
-/* ══ SEAT MAP ══ */
-.seat-map-wrap{border:1px solid var(–border);background:var(–surface);padding:24px;margin-bottom:14px;}
-.seat-map-title{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–gold);margin-bottom:16px;text-align:center;}
-.stage{background:rgba(184,150,62,.12);border:1px solid rgba(184,150,62,.3);text-align:center;padding:10px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:20px;}
-.seat-section{margin-bottom:16px;}
-.seat-section-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–muted);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
-.seat-section-label span{color:var(–gold-hi);font-size:11px;letter-spacing:0;text-transform:none;font-weight:500;}
-.seat-row{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
-.seat-row-label{font-size:10px;color:var(–muted);width:16px;text-align:center;flex-shrink:0;}
-.seat{width:18px;height:18px;border-radius:2px;cursor:pointer;transition:all .15s;border:1px solid transparent;flex-shrink:0;}
+/* Seat map */
+.seat-map-wrap{border:1px solid var(–border);background:var(–surface);padding:22px;margin-bottom:14px;}
+.seat-map-title{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–gold);margin-bottom:14px;text-align:center;}
+.stage{background:rgba(184,150,62,.12);border:1px solid rgba(184,150,62,.3);text-align:center;padding:9px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:18px;}
+.seat-section{margin-bottom:14px;}
+.seat-row{display:flex;align-items:center;gap:3px;margin-bottom:3px;}
+.seat-row-label{font-size:10px;color:var(–muted);width:14px;text-align:center;flex-shrink:0;}
+.seat{width:16px;height:16px;border-radius:2px;cursor:pointer;transition:all .15s;border:1px solid transparent;flex-shrink:0;}
 .seat.available{background:rgba(184,150,62,.2);border-color:rgba(184,150,62,.3);}
-.seat.available:hover{background:rgba(184,150,62,.4);border-color:var(–gold);}
+.seat.available:hover{background:rgba(184,150,62,.45);border-color:var(–gold);}
 .seat.selected{background:var(–gold);border-color:var(–gold-hi);}
-.seat.taken{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08);cursor:not-allowed;}
-.seat.aisle{background:transparent;border-color:transparent;cursor:default;}
-.seat-legend{display:flex;gap:16px;margin-top:12px;justify-content:center;}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(–muted);}
-.legend-dot{width:12px;height:12px;border-radius:2px;}
-.seat-selection-info{background:rgba(184,150,62,.06);border:1px solid var(–border-hi);padding:12px 16px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;}
-.seat-selection-info p{font-size:13px;color:var(–white-dim);}
-.seat-selection-info strong{color:var(–gold-hi);}
-.seat-count-info{font-size:12px;color:var(–muted);}
+.seat.taken{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.07);cursor:not-allowed;}
+.seat.aisle{background:transparent;border-color:transparent;cursor:default;width:8px;}
+.seat-legend{display:flex;gap:16px;margin-top:10px;justify-content:center;}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(–muted);}
+.legend-dot{width:11px;height:11px;border-radius:2px;}
+.seat-sel-info{background:rgba(184,150,62,.06);border:1px solid var(–border-hi);padding:11px 14px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;}
+.seat-sel-info p{font-size:13px;color:var(–white-dim);}
+.seat-sel-info strong{color:var(–gold-hi);}
+.seat-count{font-size:12px;color:var(–muted);}
 
-/* ══ ORDER SUMMARY ══ */
+/* Order summary */
 .order-sum{background:var(–surface);border:1px solid var(–border);padding:16px;margin-bottom:13px;}
 .order-line{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:var(–white-dim);border-bottom:1px solid rgba(184,150,62,.06);}
 .order-line:last-of-type{border-bottom:none;}
@@ -265,9 +254,9 @@ button{font-family:inherit;}
 .notice p{font-size:13px;color:var(–white-dim);line-height:1.65;}
 .notice strong{color:var(–gold-hi);}
 
-/* ══ CONFIRMATION ══ */
+/* Confirmation */
 .conf-wrap{text-align:center;padding:6px 0;}
-.conf-check{width:46px;height:46px;background:rgba(126,200,150,.12);border:1px solid rgba(126,200,150,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 13px;font-size:20px;}
+.conf-check{width:46px;height:46px;background:rgba(126,200,150,.12);border:1px solid rgba(126,200,150,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 13px;font-size:20px;color:#7ec896;}
 .conf-title{font-family:var(–serif);font-size:22px;font-weight:700;color:var(–white);margin-bottom:6px;letter-spacing:-.2px;}
 .conf-sub{font-size:14px;color:var(–white-dim);margin-bottom:24px;line-height:1.65;}
 .receipt{background:var(–surface);border:1px solid var(–border);padding:20px;text-align:left;margin-bottom:16px;position:relative;}
@@ -277,7 +266,7 @@ button{font-family:inherit;}
 .receipt-venue{font-size:10px;color:var(–muted);letter-spacing:1.5px;text-transform:uppercase;}
 .receipt-ref-label{font-size:9px;color:var(–muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;text-align:right;}
 .receipt-ref-num{font-family:var(–serif);font-size:13px;font-weight:700;color:var(–gold-hi);letter-spacing:2px;}
-.receipt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+.receipt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
 .receipt-grid-wide{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .rg-cell label{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–muted);display:block;margin-bottom:2px;}
 .rg-cell span{font-size:12px;color:var(–white);font-weight:500;}
@@ -295,7 +284,8 @@ button{font-family:inherit;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-.hero-inner{grid-template-columns:1fr;gap:40px;}.hero-right{display:none;}
+.hero-inner{grid-template-columns:1fr;gap:40px;}
+.show-card{display:none;}
 .season-grid{grid-template-columns:1fr;}.season-card.featured{grid-column:1;}
 .prod-item{grid-template-columns:1fr;}.prod-poster{display:none;}
 .artists-grid{grid-template-columns:1fr 1fr;}
@@ -304,11 +294,12 @@ button{font-family:inherit;}
 .rentals-grid{grid-template-columns:1fr;}
 .footer-grid{grid-template-columns:1fr 1fr;}
 .rentals-cta{flex-direction:column;gap:18px;text-align:center;}
-.main-nav a:not(.nav-tix){display:none;}
+.nav-item{display:none;}
+.nav-tix{display:block;}
 .wrap{padding:0 20px;}
 .receipt-grid{grid-template-columns:1fr 1fr;}
 .frow{grid-template-columns:1fr;}
-.seat{width:14px;height:14px;}
+.seat{width:13px;height:13px;}
 }
 </style>
 
@@ -317,34 +308,30 @@ button{font-family:inherit;}
 
 <script>
 const C = {
-  publicKey:  "Y-WPMVeGn90c4rUC1",
-  serviceId:  "service_zhzrkx3",
-  templateId: "template_4qeqz3i",
-  progTemplateId: "", // ADD YOUR EMAIL 2 TEMPLATE ID HERE
-
-  venueName:    "The Grand Brooklyn Opera House",
-  venueAddress: "247 Clinton Avenue, Brooklyn, NY 11205",
-  venuePhone:   "(718) 555-0192",
-  venueEmail:   "boxoffice.grandbklyn@gmail.com",
-  venueEst:     "Est. 1887",
-  progUrl:      "https://grandbrooklyn-playbill.netlify.app",
-
-  prices: { gallery:45, mezz:75, orch:110, grand:145 },
-
-  shows: [
+  publicKey:      "Y-WPMVeGn90c4rUC1",
+  serviceId:      "service_zhzrkx3",
+  templateId:     "template_4qeqz3i",
+  progTemplateId: "",
+  progUrl:        "https://grandbrooklyn-playbill.netlify.app",
+  venueName:      "The Grand Brooklyn Opera House",
+  venueAddress:   "247 Clinton Avenue, Brooklyn, NY 11205",
+  venuePhone:     "(718) 555-0192",
+  venueEmail:     "boxoffice.grandbklyn@gmail.com",
+  venueEst:       "Est. 1887",
+  prices: { grand:145, orch:110, mezz:75, gallery:45 },
+  shows:[
     {id:"s1",title:"Vuoi Sposarmi?",translation:"An opera in two acts",language:"Italian",period:"Venice, 1842",icon:"💍",composer:"G. Marinetti",conductor:"Maestro A. De Luca",director:"Sofia Caruso",duration:"2 hrs 15 min",tag:"Opening Night",desc:"A young nobleman races across the canals of Venice to reach the woman he loves before she sails for London, determined to ask the question he has carried in his heart for three years.",notes:"Marinetti's most celebrated work, praised by critics as the most honest opera ever written about the terrifying beauty of choosing someone forever. The aria in the final scene has reduced audiences to silence in concert halls from Milan to Buenos Aires."},
     {id:"s2",title:"Je Vais Te Demander en Mariage",translation:"An opera in three acts",language:"French",period:"Paris, 1887",icon:"🌹",composer:"H. Beaumont",conductor:"Maestro D. Rosetti",director:"Elena Voss",duration:"2 hrs 40 min",tag:"Featured Production",desc:"Set against the gaslit boulevards of 19th-century Paris, a composer spends an entire year crafting the perfect moment to propose to the woman who inspired every note he ever wrote.",notes:"Beaumont composed this opera for his own wife, premiering it on the eve of their wedding. The orchestration reaches its most breathtaking in Act III, where the protagonist rehearses his words alone on stage — a scene the New York Times called the most vulnerable ten minutes in all of opera."},
     {id:"s3",title:"Ho Comprato un Anello",translation:"A chamber opera in one act",language:"Italian",period:"Florence, 1901",icon:"💎",composer:"F. Bellacroce",conductor:"Maestro A. De Luca",director:"Marco Vitali",duration:"1 hr 45 min",tag:"Chamber Series",desc:"A goldsmith in Florence commissions a ring unlike any other, and in doing so discovers that the act of choosing a ring is itself an act of devotion — a love story told entirely through the making of a single object.",notes:"Bellacroce's only opera, written in a single week after his own engagement. The intimate scale of this one-act work makes it one of the most personal pieces in the repertoire — a quiet, devastating portrait of a man in love."},
     {id:"s4",title:"Tu Seras Ma Femme",translation:"An opera in two acts",language:"French",period:"Lyon, 1863",icon:"🕯️",composer:"P. Marchais",conductor:"Maestro D. Rosetti",director:"Elena Voss",duration:"2 hrs 20 min",tag:"Winter Season",desc:"A soldier returns from war to find the woman he loves still waiting. The opera traces a single evening — dinner, a walk along the river, and the moment he says the words he has rehearsed ten thousand times.",notes:"Marchais wrote the libretto from his own letters home during wartime. The simplicity of the story — no tragedy, no betrayal, just two people choosing each other — makes it radical in the operatic tradition."},
-    {id:"s5",title:"Stasera Ti Chiedo di Sposarmi",translation:"An opera in three acts",language:"Italian",period:"Rome, 1921",icon:"🌙",composer:"L. Ferrante",conductor:"Maestro A. De Luca",director:"Sofia Caruso",duration:"2 hrs 55 min",tag:"Grand Opera",desc:"On the night of a grand masquerade ball in Rome, a young architect has planned every detail of his proposal. The opera follows the elegant chaos that threatens to undo his perfect plan — and the moment he abandons it and simply asks.",notes:"Ferrante's masterwork. The final scene — stripped of all orchestration, just voice — is considered one of the great endings in Italian opera. The most honest thing I ever wrote, Ferrante said, is a man admitting he is terrified and asking anyway."},
+    {id:"s5",title:"Stasera Ti Chiedo di Sposarmi",translation:"An opera in three acts",language:"Italian",period:"Rome, 1921",icon:"🌙",composer:"L. Ferrante",conductor:"Maestro A. De Luca",director:"Sofia Caruso",duration:"2 hrs 55 min",tag:"Grand Opera",desc:"On the night of a grand masquerade ball in Rome, a young architect has planned every detail of his proposal. The opera follows the elegant chaos that threatens to undo his perfect plan — and the moment he abandons it and simply asks.",notes:"Ferrante's masterwork. The final scene — stripped of all orchestration, just voice — is considered one of the great endings in Italian opera."},
     {id:"s6",title:"Elle Va Dire Oui",translation:"A comic opera in two acts",language:"French",period:"Bordeaux, 1908",icon:"🥂",composer:"R. Fontaine",conductor:"Maestro D. Rosetti",director:"Elena Voss",duration:"2 hrs 05 min",tag:"Comedy Series",desc:"A wine merchant is so certain his beloved will say yes that he tells the entire village before he has even asked. A warm, witty celebration of love's beautiful confidence — and its equally beautiful vulnerability.",notes:"Fontaine's gift for comedy never overshadows the tenderness at the heart of this opera. The penultimate aria, where the merchant finally asks, has the audience laughing and weeping simultaneously."},
-    {id:"s7",title:"Ho Nascosto l'Anello in Tasca",translation:"An opera in two acts",language:"Italian",period:"Naples, 1934",icon:"🎭",composer:"C. Esposito",conductor:"Maestro A. De Luca",director:"Marco Vitali",duration:"2 hrs 30 min",tag:"Winter Season",desc:"A fisherman carries a ring in his pocket for six months, waiting for the right moment. The opera is the story of those six months — every near-proposal, every interruption — and the morning he finally stops waiting.",notes:"Esposito drew from his own experience — he carried his wife's ring for four months before proposing. The opera has a warmth and specificity that feels almost autobiographical, each scene a recognizable portrait of a man who loves completely and is simply afraid."},
-    {id:"s8",title:"Lei Dirà Sì Stasera",translation:"An opera in one act",language:"Italian",period:"Sicily, 1955",icon:"🌊",composer:"A. Mancini",conductor:"Maestro D. Rosetti",director:"Sofia Caruso",duration:"1 hr 50 min",tag:"Chamber Series",desc:"On a Sicilian evening in early summer, a schoolteacher watches the woman he loves walk along the shore and knows — with absolute certainty — that tonight is the night. A meditation on certainty, courage, and the extraordinary ordinariness of a life-changing question.",notes:"Critics have called this the most elegant short opera of the postwar period. Mancini's restraint is the point — no swelling chorus, no dramatic crisis, just the quiet conviction of a man who has made up his mind and the luminous beauty of that decision."},
-    {id:"s9",title:"Ti Amerò Per Sempre",translation:"An opera in three acts",language:"Italian",period:"Milan, 1878",icon:"❤️",composer:"G. Castellano",conductor:"Maestro A. De Luca",director:"Elena Voss",duration:"3 hrs 10 min",tag:"Grand Opera",desc:"An architect and a painter meet, fall apart, and find their way back across three decades. The opera's final act — two people choosing each other again — is among the most celebrated in the repertoire.",notes:"Castellano spent eleven years writing this opera, revising Act III four times. The work is considered his life's masterpiece, a meditation not just on love but on the particular courage it takes to keep choosing the same person across a lifetime."},
+    {id:"s7",title:"Ho Nascosto l'Anello in Tasca",translation:"An opera in two acts",language:"Italian",period:"Naples, 1934",icon:"🎭",composer:"C. Esposito",conductor:"Maestro A. De Luca",director:"Marco Vitali",duration:"2 hrs 30 min",tag:"Winter Season",desc:"A fisherman carries a ring in his pocket for six months, waiting for the right moment. The opera is the story of those six months — every near-proposal, every interruption — and the morning he finally stops waiting.",notes:"Esposito drew from his own experience — he carried his wife's ring for four months before proposing. Each scene is a recognizable portrait of a man who loves completely and is simply afraid."},
+    {id:"s8",title:"Lei Dirà Sì Stasera",translation:"An opera in one act",language:"Italian",period:"Sicily, 1955",icon:"🌊",composer:"A. Mancini",conductor:"Maestro D. Rosetti",director:"Sofia Caruso",duration:"1 hr 50 min",tag:"Chamber Series",desc:"On a Sicilian evening in early summer, a schoolteacher watches the woman he loves walk along the shore and knows — with absolute certainty — that tonight is the night. A meditation on certainty, courage, and the extraordinary ordinariness of a life-changing question.",notes:"Critics have called this the most elegant short opera of the postwar period. Mancini's restraint is the point — the quiet conviction of a man who has made up his mind and the luminous beauty of that decision."},
+    {id:"s9",title:"Ti Amerò Per Sempre",translation:"An opera in three acts",language:"Italian",period:"Milan, 1878",icon:"❤️",composer:"G. Castellano",conductor:"Maestro A. De Luca",director:"Elena Voss",duration:"3 hrs 10 min",tag:"Grand Opera",desc:"An architect and a painter meet, fall apart, and find their way back across three decades. The opera's final act — two people choosing each other again — is among the most celebrated in the repertoire.",notes:"Castellano spent eleven years writing this opera, revising Act III four times. The work is considered his life's masterpiece, a meditation on the particular courage it takes to keep choosing the same person across a lifetime."},
     {id:"s10",title:"Le Jour Où Je T'ai Demandé ta Main",translation:"An opera in two acts",language:"French",period:"Provence, 1912",icon:"🌻",composer:"J. Renard",conductor:"Maestro D. Rosetti",director:"Marco Vitali",duration:"2 hrs 25 min",tag:"Closing Night",desc:"Told entirely in retrospect, an old man recounts the day he asked for his wife's hand — the lavender fields, the stumbled words, the way she laughed before she said yes. A luminous final chapter to the season.",notes:"Renard's valedictory work, written at 74 after fifty years of marriage. The closing aria is among the most quietly devastating in all of French opera."}
   ],
-
-  perfs: [
+  perfs:[
     {date:"Sunday, December 21",year:"2026",time:"7:00 PM",show:"s1",avail:"good"},
     {date:"Sunday, December 21",year:"2026",time:"3:00 PM",show:"s2",avail:"good"},
     {date:"Sunday, December 21",year:"2026",time:"7:00 PM",show:"s9",avail:"good"},
@@ -391,9 +378,9 @@ const C = {
   <div class="hdr-top">
     <span class="hdr-top-text" id="h-addr"></span>
     <div class="hdr-top-links">
-      <a onclick="go('visit')">Plan Your Visit</a>
-      <a onclick="go('about')">About</a>
-      <a id="h-phone"></a>
+      <button class="hdr-top-link" onclick="go('visit')">Plan Your Visit</button>
+      <button class="hdr-top-link" onclick="go('about')">About</button>
+      <button class="hdr-top-link" id="h-phone"></button>
     </div>
   </div>
   <div class="hdr-main">
@@ -402,12 +389,12 @@ const C = {
       <div class="logo-tag" id="h-tag"></div>
     </div>
     <nav class="main-nav">
-      <a onclick="go('home')"    id="n-home" class="on">Season</a>
-      <a onclick="go('season')"  id="n-season">Productions</a>
-      <a onclick="go('artists')" id="n-artists">Artists</a>
-      <a onclick="go('about')"   id="n-about">About</a>
-      <a onclick="go('visit')"   id="n-visit">Visit</a>
-      <a onclick="openModal()"   class="nav-tix">Get Tickets</a>
+      <button class="nav-item on"  id="n-home"    onclick="go('home')">Season</button>
+      <button class="nav-item"     id="n-season"  onclick="go('season')">Productions</button>
+      <button class="nav-item"     id="n-artists" onclick="go('artists')">Artists</button>
+      <button class="nav-item"     id="n-about"   onclick="go('about')">About</button>
+      <button class="nav-item"     id="n-visit"   onclick="go('visit')">Visit</button>
+      <button class="nav-tix"                     onclick="openModal()">Get Tickets</button>
     </nav>
   </div>
 </header>
@@ -417,32 +404,31 @@ const C = {
 <div class="page active" id="pg-home" style="padding-top:105px;">
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-left">
+      <div>
         <div class="hero-season">2026 – 2027 Season</div>
         <h1 class="hero-h1">Brooklyn's home<br>for opera</h1>
         <p class="hero-desc">Ten productions. Two languages. One season built around the most dramatic question a person can ask. Join us.</p>
         <div class="hero-btns">
-          <button class="btn btn-primary" onclick="openModal()">Reserve Tickets</button>
-          <button class="btn btn-secondary" onclick="go('season')">View Season</button>
+          <button class="btn btn-gold" onclick="openModal()">Reserve Tickets</button>
+          <button class="btn btn-outline" onclick="go('season')">View Season</button>
         </div>
       </div>
-      <div class="hero-right">
-        <div class="show-card">
-          <div class="show-card-img"><span>🌹</span></div>
-          <div class="show-card-body">
-            <div class="show-card-tag">Featured This Season</div>
-            <div class="show-card-title">Je Vais Te Demander en Mariage</div>
-            <div class="show-card-sub">An opera in three acts · French</div>
-            <div class="show-card-meta">
-              <div class="scm-i"><div class="scm-label">Conductor</div><div class="scm-val">Maestro D. Rosetti</div></div>
-              <div class="scm-i"><div class="scm-label">Duration</div><div class="scm-val">2 hrs 40 min</div></div>
-            </div>
-            <button class="btn btn-primary" onclick="openModal()" style="width:100%;">Select Tickets</button>
+      <div class="show-card">
+        <div class="show-card-img"><span>🌹</span></div>
+        <div class="show-card-body">
+          <div class="show-card-tag">Featured This Season</div>
+          <div class="show-card-title">Je Vais Te Demander en Mariage</div>
+          <div class="show-card-sub">An opera in three acts · French</div>
+          <div class="show-card-meta">
+            <div class="scm-i"><div class="scm-label">Conductor</div><div class="scm-val">Maestro D. Rosetti</div></div>
+            <div class="scm-i"><div class="scm-label">Duration</div><div class="scm-val">2 hrs 40 min</div></div>
           </div>
+          <button class="btn btn-gold" onclick="openModal()" style="width:100%;">Select Tickets</button>
         </div>
       </div>
     </div>
   </section>
+
   <footer class="footer">
     <div class="wrap">
       <div class="footer-grid">
@@ -453,24 +439,24 @@ const C = {
         </div>
         <div class="footer-col">
           <h4>Performances</h4>
-          <a onclick="go('season')">Current Season</a>
-          <a onclick="openModal()">Buy Tickets</a>
-          <a onclick="go('season')">Group Sales</a>
-          <a onclick="go('season')">Gift Certificates</a>
+          <button class="footer-link" onclick="go('season')">Current Season</button>
+          <button class="footer-link" onclick="openModal()">Buy Tickets</button>
+          <button class="footer-link" onclick="go('season')">Group Sales</button>
+          <button class="footer-link" onclick="go('season')">Gift Certificates</button>
         </div>
         <div class="footer-col">
           <h4>The House</h4>
-          <a onclick="go('about')">Our History</a>
-          <a onclick="go('artists')">Artists</a>
-          <a onclick="go('rentals')">Venue Rentals</a>
-          <a onclick="go('about')">Press</a>
+          <button class="footer-link" onclick="go('about')">Our History</button>
+          <button class="footer-link" onclick="go('artists')">Artists</button>
+          <button class="footer-link" onclick="go('rentals')">Venue Rentals</button>
+          <button class="footer-link" onclick="go('about')">Press</button>
         </div>
         <div class="footer-col">
           <h4>Visit</h4>
-          <a onclick="go('visit')">Directions & Parking</a>
-          <a onclick="go('visit')">Accessibility</a>
-          <a onclick="go('visit')">Dining Nearby</a>
-          <a onclick="go('visit')">Box Office Hours</a>
+          <button class="footer-link" onclick="go('visit')">Directions & Parking</button>
+          <button class="footer-link" onclick="go('visit')">Accessibility</button>
+          <button class="footer-link" onclick="go('visit')">Dining Nearby</button>
+          <button class="footer-link" onclick="go('visit')">Box Office Hours</button>
         </div>
       </div>
       <div class="footer-bottom">
@@ -507,7 +493,7 @@ const C = {
             <div class="pmg-item"><label>Language</label><span id="pd-langv"></span></div>
           </div>
           <div style="margin-top:24px;">
-            <button class="btn btn-primary" onclick="openModal()">Reserve Tickets</button>
+            <button class="btn btn-gold" onclick="openModal()">Reserve Tickets</button>
           </div>
         </div>
         <div>
@@ -564,7 +550,7 @@ const C = {
         <p>The Grand Brooklyn Opera House was founded in 1887 by a group of Brooklyn civic leaders who believed that world-class opera should not be confined to Manhattan. What began as an intimate hall seating 400 has grown into one of the most storied performance venues in the northeastern United States.</p>
         <p>Over thirteen decades, our stage has welcomed legendary sopranos, celebrated conductors, and emerging artists alike. We have survived two world wars, the Great Depression, and multiple restorations — each time emerging stronger and more committed to our founding mission.</p>
         <p>Today, The Grand Brooklyn Opera House presents a full season of mainstage productions, chamber concerts, youth programming, and community events — rooted always in the belief that great art belongs to everyone.</p>
-        <p style="margin-top:22px;"><button class="btn btn-primary" onclick="openModal()">Reserve Tickets</button></p>
+        <p style="margin-top:22px;"><button class="btn btn-gold" onclick="openModal()">Reserve Tickets</button></p>
       </div>
       <div>
         <div class="info-block">
@@ -602,46 +588,22 @@ const C = {
       <div class="visit-card">
         <span class="vc-icon">🕐</span>
         <div class="vc-title">Box Office Hours</div>
-        <div class="vc-body">
-          <ul class="vc-list">
-            <li>Tuesday – Friday<span>12:00 – 7:00 PM</span></li>
-            <li>Saturday<span>11:00 AM – 6:00 PM</span></li>
-            <li>Sunday<span>12:00 – 4:00 PM</span></li>
-            <li>Performance Days<span>Until 30 min post-curtain</span></li>
-            <li>Monday<span>Closed</span></li>
-          </ul>
-        </div>
+        <div class="vc-body"><ul class="vc-list"><li>Tuesday – Friday<span>12:00 – 7:00 PM</span></li><li>Saturday<span>11:00 AM – 6:00 PM</span></li><li>Sunday<span>12:00 – 4:00 PM</span></li><li>Performance Days<span>Until 30 min post-curtain</span></li><li>Monday<span>Closed</span></li></ul></div>
       </div>
       <div class="visit-card">
         <span class="vc-icon">🅿️</span>
         <div class="vc-title">Parking</div>
-        <div class="vc-body">
-          The Grand Brooklyn Opera House operates a <strong>private on-site parking lot</strong> at 241 Clinton Avenue, directly adjacent to the main entrance.<br><br>
-          <strong>Lot hours:</strong> Opens 90 minutes before each performance. Closes 60 minutes after curtain.<br><br>
-          <strong>Rate:</strong> $18 flat rate per performance evening. Attendants on duty at all times.<br><br>
-          Additional street parking is available on Clinton Avenue and surrounding blocks at no charge after 6:00 PM.
-        </div>
+        <div class="vc-body">The Grand Brooklyn Opera House operates a <strong>private on-site parking lot</strong> at 241 Clinton Avenue, directly adjacent to the main entrance.<br><br><strong>Lot hours:</strong> Opens 90 minutes before each performance. Closes 60 minutes after curtain.<br><br><strong>Rate:</strong> $18 flat rate per performance evening. Attendants on duty at all times.<br><br>Additional street parking is available on Clinton Avenue and surrounding blocks at no charge after 6:00 PM.</div>
       </div>
       <div class="visit-card">
         <span class="vc-icon">🍷</span>
         <div class="vc-title">Dining & Drinks</div>
-        <div class="vc-body">
-          Our Grand Foyer Bar opens 90 minutes before each curtain with a curated selection of wines, champagnes, and non-alcoholic beverages.<br><br>
-          <strong>Pre-theatre dining</strong> is available at partner restaurants within a 5-minute walk. Ask at the Box Office for our current recommendations and exclusive discount cards.
-        </div>
+        <div class="vc-body">Our Grand Foyer Bar opens 90 minutes before each curtain with a curated selection of wines, champagnes, and non-alcoholic beverages.<br><br><strong>Pre-theatre dining</strong> is available at partner restaurants within a 5-minute walk. Ask at the Box Office for our current recommendations.</div>
       </div>
       <div class="visit-card">
         <span class="vc-icon">♿</span>
         <div class="vc-title">Accessibility</div>
-        <div class="vc-body">
-          <ul class="vc-list">
-            <li>Wheelchair seating<span>All levels</span></li>
-            <li>Audio description<span>On request</span></li>
-            <li>Large print programs<span>At Box Office</span></li>
-            <li>Assisted listening<span>Free of charge</span></li>
-            <li>Elevator access<span>All floors</span></li>
-          </ul>
-        </div>
+        <div class="vc-body"><ul class="vc-list"><li>Wheelchair seating<span>All levels</span></li><li>Audio description<span>On request</span></li><li>Large print programs<span>At Box Office</span></li><li>Assisted listening<span>Free of charge</span></li><li>Elevator access<span>All floors</span></li></ul></div>
       </div>
     </div>
   </div>
@@ -658,7 +620,7 @@ const C = {
       <div class="rental-card"><span class="rental-icon">🥂</span><div class="rental-name">The Grand Foyer</div><div class="rental-cap">Up to 300 guests</div><div class="rental-desc">A sweeping marble-floored entrance hall with a carved staircase and original 1887 chandeliers. Perfect for cocktail receptions, product launches, and intimate dinners.</div></div>
       <div class="rental-card"><span class="rental-icon">🎼</span><div class="rental-name">The Aldrich Room</div><div class="rental-cap">Up to 120 guests</div><div class="rental-desc">An intimate salon with a baby grand piano, wood-paneled walls, and warm ambiance. Ideal for chamber concerts, private dinners, and presentations.</div></div>
     </div>
-    <div class="rentals-cta"><div><h3>Inquire About Your Event</h3><p id="rent-contact"></p></div><button class="btn btn-primary">Contact Our Events Team</button></div>
+    <div class="rentals-cta"><div><h3>Inquire About Your Event</h3><p id="rent-contact"></p></div><button class="btn btn-gold">Contact Our Events Team</button></div>
   </div>
 </div>
 
@@ -671,54 +633,52 @@ const C = {
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body">
+      <div class="step-bar">
+        <div class="step-item active" id="st1"><div class="step-num">1</div><span>Show</span></div>
+        <div class="step-conn"></div>
+        <div class="step-item" id="st2"><div class="step-num">2</div><span>Seats</span></div>
+        <div class="step-conn"></div>
+        <div class="step-item" id="st3"><div class="step-num">3</div><span>Details</span></div>
+        <div class="step-conn"></div>
+        <div class="step-item" id="st4"><div class="step-num">4</div><span>Confirm</span></div>
+      </div>
 
 ```
-  <!-- Steps -->
-  <div class="step-bar">
-    <div class="step-item active" id="st1"><div class="step-num">1</div><span>Show</span></div>
-    <div class="step-conn"></div>
-    <div class="step-item" id="st2"><div class="step-num">2</div><span>Seats</span></div>
-    <div class="step-conn"></div>
-    <div class="step-item" id="st3"><div class="step-num">3</div><span>Details</span></div>
-    <div class="step-conn"></div>
-    <div class="step-item" id="st4"><div class="step-num">4</div><span>Confirm</span></div>
-  </div>
-
-  <!-- Page 1: Show + Section selection -->
+  <!-- Step 1 -->
   <div class="bpage active" id="bp1">
     <div class="form-title">Choose your show & section</div>
     <label class="flbl">Production</label>
     <select class="finp" id="show-sel"></select>
     <label class="flbl">Performance date</label>
     <select class="finp" id="perf-sel"></select>
-    <label class="flbl" style="margin-bottom:10px;">Select a seating section</label>
+    <label class="flbl" style="margin-bottom:10px;">Seating section</label>
     <div class="tix-opts">
       <div class="tix-opt" id="tier-grand" onclick="selectTier('grand')">
-        <div class="to-info"><h4>Grand Tier <span class="to-badge">Best View</span></h4><p>Rows A–F · Premium orchestra seating, closest to stage</p></div>
-        <div class="to-right"><div class="to-price">$145</div></div>
+        <div class="to-info"><h4>Grand Tier <span class="to-badge">Best View</span></h4><p>Rows A–F · Premium orchestra, closest to stage</p></div>
+        <div class="to-price">$145</div>
       </div>
       <div class="tix-opt" id="tier-orch" onclick="selectTier('orch')">
         <div class="to-info"><h4>Orchestra</h4><p>Rows G–P · Excellent sightlines, center hall</p></div>
-        <div class="to-right"><div class="to-price">$110</div></div>
+        <div class="to-price">$110</div>
       </div>
       <div class="tix-opt" id="tier-mezz" onclick="selectTier('mezz')">
         <div class="to-info"><h4>Mezzanine</h4><p>Elevated rear orchestra · Great acoustics</p></div>
-        <div class="to-right"><div class="to-price">$75</div></div>
+        <div class="to-price">$75</div>
       </div>
       <div class="tix-opt" id="tier-gallery" onclick="selectTier('gallery')">
         <div class="to-info"><h4>Upper Gallery <span class="to-badge">Best Value</span></h4><p>Upper balcony · Intimate atmosphere, full house view</p></div>
-        <div class="to-right"><div class="to-price">$45</div></div>
+        <div class="to-price">$45</div>
       </div>
     </div>
     <div class="notice"><p><strong>Reserve now, pay at the door.</strong> No payment collected online. Present confirmation at the Box Office. We accept all major credit cards and cash.</p></div>
-    <button class="btn btn-primary" onclick="gs(2)" style="width:100%;">Choose Your Seats →</button>
+    <button class="btn btn-gold" onclick="gs(2)" style="width:100%;">Choose Your Seats →</button>
   </div>
 
-  <!-- Page 2: Seat Map -->
+  <!-- Step 2: Seat Map -->
   <div class="bpage" id="bp2">
     <div class="form-title">Choose your seats</div>
     <div class="seat-map-wrap">
-      <div class="seat-map-title" id="map-section-title">Select up to 4 seats</div>
+      <div class="seat-map-title" id="map-title">Select up to 4 seats</div>
       <div class="stage">— Stage —</div>
       <div id="seat-map-rows"></div>
       <div class="seat-legend">
@@ -727,18 +687,18 @@ const C = {
         <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);"></div>Taken</div>
       </div>
     </div>
-    <div class="seat-selection-info" id="seat-info">
-      <p>Selected: <strong id="seat-selected-display">None</strong></p>
-      <span class="seat-count-info" id="seat-count-display">0 of 4 max</span>
+    <div class="seat-sel-info">
+      <p>Selected: <strong id="seat-display">None</strong></p>
+      <span class="seat-count" id="seat-count">0 of 4 max</span>
     </div>
     <div class="order-sum" id="os2" style="display:none;"><div id="ol2"></div><div class="order-tot"><span>Total</span><span id="ot2">$0</span></div></div>
-    <div style="display:flex;gap:10px;">
-      <button class="btn btn-ghost" onclick="gs(1)">← Back</button>
-      <button class="btn btn-primary" onclick="gs(3)" style="flex:1;">Continue to Details →</button>
+    <div style="display:flex;gap:10px;margin-top:4px;">
+      <button class="btn btn-dim" onclick="gs(1)">← Back</button>
+      <button class="btn btn-gold" onclick="gs(3)" style="flex:1;">Continue to Details →</button>
     </div>
   </div>
 
-  <!-- Page 3: Guest Details -->
+  <!-- Step 3: Guest Details -->
   <div class="bpage" id="bp3">
     <div class="form-title">Your information</div>
     <div class="frow">
@@ -754,12 +714,12 @@ const C = {
     <div class="order-sum"><div id="ol3"></div><div class="order-tot"><span>Total due at door</span><span id="ot3">$0</span></div></div>
     <div class="notice"><p>Your seats are held for <strong>20 minutes</strong> from submission. No payment required online — please arrive 30 minutes before curtain.</p></div>
     <div style="display:flex;gap:10px;">
-      <button class="btn btn-ghost" onclick="gs(2)">← Back</button>
-      <button class="btn btn-primary" onclick="gs(4)" style="flex:1;">Complete Reservation →</button>
+      <button class="btn btn-dim" onclick="gs(2)">← Back</button>
+      <button class="btn btn-gold" onclick="gs(4)" style="flex:1;">Complete Reservation →</button>
     </div>
   </div>
 
-  <!-- Page 4: Confirmation -->
+  <!-- Step 4: Confirmation -->
   <div class="bpage" id="bp4">
     <div id="st-send" class="spinner-wrap"><div class="spinner"></div><p class="spinner-text">Securing your reservation…</p></div>
     <div id="st-conf" style="display:none;">
@@ -792,10 +752,9 @@ const C = {
     <div id="st-err" style="display:none;" class="error-wrap">
       <h3>Something went wrong</h3>
       <p>We couldn't send your confirmation. Please try again or contact the Box Office directly.</p>
-      <button class="btn btn-ghost" onclick="gs(3)">← Go back</button>
+      <button class="btn btn-dim" onclick="gs(3)">← Go back</button>
     </div>
   </div>
-
 </div>
 ```
 
@@ -807,7 +766,7 @@ emailjs.init(C.publicKey);
 const $ = id => document.getElementById(id);
 const set = (id,v) => { const e=$(id); if(e) e.textContent=v; };
 
-// Populate config
+// Populate
 set('h-name',C.venueName); set('h-tag',C.venueEst+' · Brooklyn, New York');
 set('h-addr',C.venueAddress); set('h-phone',C.venuePhone);
 set('ft-name',C.venueName); set('ft-tag',C.venueEst+' · Brooklyn, New York');
@@ -816,18 +775,18 @@ set('ft-copy','© 2026 '+C.venueName+'. All rights reserved.');
 set('ab-addr',C.venueAddress); set('ab-ph',C.venuePhone);
 set('rent-contact',C.venuePhone+' · '+C.venueEmail);
 set('c-ven',C.venueName);
-set('c-foot','A copy of this confirmation has been sent to your email address.\nQuestions? '+C.venuePhone+' · '+C.venueEmail);
+set('c-foot','A copy of this confirmation has been sent to your email.\nQuestions? '+C.venuePhone+' · '+C.venueEmail);
 
 // Build season grid
 const grid=$('season-grid');
 C.shows.forEach((s,i)=>{
   const card=document.createElement('div');
   card.className='season-card'+(i===1?' featured':'');
-  card.innerHTML=`<div class="sc-tag">${s.tag}</div><span class="sc-icon">${s.icon}</span><div class="sc-title">${s.title}</div><div class="sc-sub">${s.translation} · ${s.language}</div><div class="sc-desc">${s.desc}</div><div style="display:flex;gap:10px;margin-top:14px;"><button class="btn btn-primary btn-sm" onclick="openModal()">Tickets</button><button class="btn btn-secondary btn-sm" onclick="showProd('${s.id}')">Details</button></div>`;
+  card.innerHTML=`<div class="sc-tag">${s.tag}</div><span class="sc-icon">${s.icon}</span><div class="sc-title">${s.title}</div><div class="sc-sub">${s.translation} · ${s.language}</div><div class="sc-desc">${s.desc}</div><div style="display:flex;gap:10px;margin-top:14px;"><button class="btn btn-gold btn-sm" onclick="openModal()">Tickets</button><button class="btn btn-outline btn-sm" onclick="showProd('${s.id}')">Details</button></div>`;
   grid.appendChild(card);
 });
 
-// Build show dropdown
+// Show dropdowns
 const showSel=$('show-sel');
 showSel.innerHTML='<option value="">— Select a production —</option>';
 C.shows.forEach(s=>{
@@ -858,140 +817,7 @@ $('perf-sel').addEventListener('change',function(){
   set('c-show',s?s.title:'');
 });
 
-// Seat map config
-const SECTIONS = {
-  grand:   { label:'Grand Tier',   rows:['A','B','C','D','E','F'],   seatsPerRow:18, price:145 },
-  orch:    { label:'Orchestra',    rows:['G','H','I','J','K','L','M','N','O','P'], seatsPerRow:22, price:110 },
-  mezz:    { label:'Mezzanine',    rows:['A','B','C','D','E'],       seatsPerRow:20, price:75  },
-  gallery: { label:'Upper Gallery',rows:['A','B','C','D'],           seatsPerRow:24, price:45  }
-};
-
-// Randomly pre-take some seats for realism
-function makeTakenSeats(rows, seatsPerRow) {
-  const taken = new Set();
-  const total = rows.length * seatsPerRow;
-  const numTaken = Math.floor(total * 0.3); // 30% taken
-  while(taken.size < numTaken) {
-    const r = Math.floor(Math.random() * rows.length);
-    const s = Math.floor(Math.random() * seatsPerRow) + 1;
-    taken.add(rows[r]+'-'+s);
-  }
-  return taken;
-}
-
-let sectionData = {};
-Object.keys(SECTIONS).forEach(key => {
-  const sec = SECTIONS[key];
-  sectionData[key] = { taken: makeTakenSeats(sec.rows, sec.seatsPerRow) };
-});
-
-// State
-let selDate='', selTime='', selYear='', selShowId='';
-let selTier = '';
-let selectedSeats = []; // array of {row, seat, label}
-
-function selectTier(tier) {
-  selTier = tier;
-  document.querySelectorAll('.tix-opt').forEach(el => el.classList.remove('selected'));
-  $('tier-'+tier).classList.add('selected');
-}
-
-function buildSeatMap(tier) {
-  const sec = SECTIONS[tier];
-  const taken = sectionData[tier].taken;
-  const mapEl = $('seat-map-rows');
-  mapEl.innerHTML = '';
-  selectedSeats = [];
-  updateSeatInfo();
-
-  set('map-section-title', sec.label + ' — Select up to 4 seats ($' + sec.price + ' each)');
-
-  sec.rows.forEach(row => {
-    const rowEl = document.createElement('div');
-    rowEl.className = 'seat-row';
-
-    const label = document.createElement('div');
-    label.className = 'seat-row-label';
-    label.textContent = row;
-    rowEl.appendChild(label);
-
-    // Aisle gap in middle
-    const mid = Math.floor(sec.seatsPerRow / 2);
-
-    for(let s = 1; s <= sec.seatsPerRow; s++) {
-      if(s === mid + 1) {
-        const aisle = document.createElement('div');
-        aisle.className = 'seat aisle';
-        aisle.style.width = '10px';
-        rowEl.appendChild(aisle);
-      }
-
-      const seatEl = document.createElement('div');
-      const seatId = row+'-'+s;
-      seatEl.className = 'seat ' + (taken.has(seatId) ? 'taken' : 'available');
-      seatEl.dataset.id = seatId;
-      seatEl.dataset.row = row;
-      seatEl.dataset.seat = s;
-      seatEl.title = 'Row '+row+', Seat '+s;
-
-      if(!taken.has(seatId)) {
-        seatEl.addEventListener('click', () => toggleSeat(seatEl, tier, row, s));
-      }
-
-      rowEl.appendChild(seatEl);
-    }
-
-    mapEl.appendChild(rowEl);
-  });
-}
-
-function toggleSeat(el, tier, row, seat) {
-  const seatId = row+'-'+seat;
-  const existing = selectedSeats.findIndex(s => s.id === seatId);
-
-  if(existing > -1) {
-    selectedSeats.splice(existing, 1);
-    el.classList.remove('selected');
-    el.classList.add('available');
-  } else {
-    if(selectedSeats.length >= 4) {
-      alert('You can select a maximum of 4 seats.');
-      return;
-    }
-    selectedSeats.push({ id: seatId, row, seat, label: 'Row '+row+', Seat '+seat });
-    el.classList.remove('available');
-    el.classList.add('selected');
-  }
-
-  updateSeatInfo();
-}
-
-function updateSeatInfo() {
-  const tier = selTier;
-  const price = tier ? SECTIONS[tier].price : 0;
-  const count = selectedSeats.length;
-  const total = count * price;
-
-  if(count === 0) {
-    set('seat-selected-display', 'None');
-    $('os2').style.display = 'none';
-  } else {
-    set('seat-selected-display', selectedSeats.map(s => s.label).join(', '));
-    $('os2').style.display = 'block';
-    const sectionLabel = tier ? SECTIONS[tier].label : '';
-    const lines = selectedSeats.map(s => `<div class="order-line"><span>${sectionLabel} · ${s.label}</span><span>$${price}</span></div>`).join('');
-    $('ol2').innerHTML = lines;
-    $('ol3').innerHTML = lines;
-    set('ot2','$'+total);
-    set('ot3','$'+total);
-    set('c-total','$'+total);
-    set('c-section', sectionLabel);
-    set('c-seats', selectedSeats.map(s=>s.label).join(' · '));
-  }
-  set('seat-count-display', count+' of 4 max');
-}
-
-// Show production detail
+// Production detail
 function showProd(id){
   const s=C.shows.find(x=>x.id===id); if(!s) return;
   set('pd-lang-hdr',s.language+' Opera');
@@ -1006,7 +832,7 @@ function showProd(id){
   go('production');
 }
 
-// Navigation
+// Navigation — all buttons, no anchors
 const allPages=['home','season','production','artists','about','visit','rentals'];
 function go(pg){
   allPages.forEach(p=>{ const e=$('pg-'+p); if(e) e.classList.toggle('active',p===pg); });
@@ -1014,15 +840,101 @@ function go(pg){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+// Seat sections
+const SECTIONS={
+  grand:  {label:'Grand Tier',   rows:['A','B','C','D','E','F'],                          seats:18, price:145},
+  orch:   {label:'Orchestra',    rows:['G','H','I','J','K','L','M','N','O','P'],           seats:22, price:110},
+  mezz:   {label:'Mezzanine',    rows:['A','B','C','D','E'],                               seats:20, price:75 },
+  gallery:{label:'Upper Gallery',rows:['A','B','C','D'],                                   seats:24, price:45 }
+};
+
+let takenMap={};
+Object.keys(SECTIONS).forEach(key=>{
+  const sec=SECTIONS[key]; const taken=new Set();
+  const total=sec.rows.length*sec.seats;
+  while(taken.size<Math.floor(total*.3)){
+    const r=Math.floor(Math.random()*sec.rows.length);
+    const s=Math.floor(Math.random()*sec.seats)+1;
+    taken.add(sec.rows[r]+'-'+s);
+  }
+  takenMap[key]=taken;
+});
+
+let selDate='',selTime='',selYear='',selShowId='',selTier='';
+let selectedSeats=[];
+
+function selectTier(tier){
+  selTier=tier;
+  document.querySelectorAll('.tix-opt').forEach(el=>el.classList.remove('selected'));
+  $('tier-'+tier).classList.add('selected');
+}
+
+function buildSeatMap(tier){
+  const sec=SECTIONS[tier]; const taken=takenMap[tier];
+  const mapEl=$('seat-map-rows'); mapEl.innerHTML='';
+  selectedSeats=[];
+  updateSeatInfo();
+  set('map-title',sec.label+' — Select up to 4 seats ($'+sec.price+' each)');
+  const mid=Math.floor(sec.seats/2);
+  sec.rows.forEach(row=>{
+    const rowEl=document.createElement('div');
+    rowEl.className='seat-row';
+    const lbl=document.createElement('div');
+    lbl.className='seat-row-label'; lbl.textContent=row;
+    rowEl.appendChild(lbl);
+    for(let s=1;s<=sec.seats;s++){
+      if(s===mid+1){const a=document.createElement('div');a.className='seat aisle';rowEl.appendChild(a);}
+      const seatEl=document.createElement('div');
+      const seatId=row+'-'+s;
+      seatEl.className='seat '+(taken.has(seatId)?'taken':'available');
+      seatEl.dataset.id=seatId; seatEl.dataset.row=row; seatEl.dataset.seat=s;
+      seatEl.title='Row '+row+', Seat '+s;
+      if(!taken.has(seatId)) seatEl.addEventListener('click',()=>toggleSeat(seatEl,tier,row,s));
+      rowEl.appendChild(seatEl);
+    }
+    mapEl.appendChild(rowEl);
+  });
+}
+
+function toggleSeat(el,tier,row,seat){
+  const seatId=row+'-'+seat;
+  const existing=selectedSeats.findIndex(s=>s.id===seatId);
+  if(existing>-1){
+    selectedSeats.splice(existing,1);
+    el.classList.remove('selected'); el.classList.add('available');
+  } else {
+    if(selectedSeats.length>=4){alert('You can select a maximum of 4 seats.');return;}
+    selectedSeats.push({id:seatId,row,seat,label:'Row '+row+', Seat '+seat});
+    el.classList.remove('available'); el.classList.add('selected');
+  }
+  updateSeatInfo();
+}
+
+function updateSeatInfo(){
+  const tier=selTier; const price=tier?SECTIONS[tier].price:0; const count=selectedSeats.length; const total=count*price;
+  if(count===0){set('seat-display','None');$('os2').style.display='none';}
+  else{
+    set('seat-display',selectedSeats.map(s=>s.label).join(', '));
+    $('os2').style.display='block';
+    const sectionLabel=tier?SECTIONS[tier].label:'';
+    const lines=selectedSeats.map(s=>`<div class="order-line"><span>${sectionLabel} · ${s.label}</span><span>$${price}</span></div>`).join('');
+    $('ol2').innerHTML=lines; $('ol3').innerHTML=lines;
+    set('ot2','$'+total); set('ot3','$'+total); set('c-total','$'+total);
+    set('c-section',sectionLabel);
+    set('c-seats',selectedSeats.map(s=>s.label).join(' · '));
+  }
+  set('seat-count',count+' of 4 max');
+}
+
 // Modal
 function openModal(showId){
-  if(showId){ $('show-sel').value=showId; buildPerfs(showId); }
+  if(showId){$('show-sel').value=showId;buildPerfs(showId);}
   $('modal-ov').classList.add('open');
   document.body.style.overflow='hidden';
   gs(1,true);
 }
 function closeModal(e){
-  if(!e||e.target===$('modal-ov')){ $('modal-ov').classList.remove('open'); document.body.style.overflow=''; }
+  if(!e||e.target===$('modal-ov')){$('modal-ov').classList.remove('open');document.body.style.overflow='';}
 }
 
 // Steps
@@ -1036,43 +948,34 @@ function gs(step,reset){
     else if(i===step){el.classList.add('active');n.textContent=i;}
     else{n.textContent=i;}
   });
-
   if(step===2){
     if(!$('show-sel').value){alert('Please select a production.');gs(1);return;}
     if(!selDate){alert('Please select a performance date.');gs(1);return;}
     if(!selTier){alert('Please select a seating section.');gs(1);return;}
     selectedSeats=[];
     buildSeatMap(selTier);
-    set('c-date',selDate+', '+selYear);
-    set('c-time',selTime);
+    set('c-date',selDate+', '+selYear); set('c-time',selTime);
   }
-
   if(step===3){
     if(selectedSeats.length===0){alert('Please select at least one seat.');gs(2);return;}
   }
-
   if(step===4){
     const first=$('f-first').value.trim();
     const last=$('f-last').value.trim();
     const email=$('f-email').value.trim();
     if(!first||!email){alert('Please fill in your name and email address.');gs(3);return;}
-
     const ref='GBOH-'+Math.floor(100000+Math.random()*900000);
     set('c-ref',ref); set('c-em',email);
     const showName=C.shows.find(s=>s.id===selShowId)?.title||'';
     set('c-show',showName);
-
     $('st-send').style.display='block';
     $('st-conf').style.display='none';
     $('st-err').style.display='none';
-
-    const sectionLabel = SECTIONS[selTier].label;
-    const seatList = selectedSeats.map(s=>s.label).join(', ');
-    const totalAmt = '$'+(selectedSeats.length * SECTIONS[selTier].price);
-    const progLink = C.progUrl+'?show='+selShowId;
-
-    // Email 1 — booking confirmation
-    emailjs.send(C.serviceId, C.templateId, {
+    const sectionLabel=SECTIONS[selTier].label;
+    const seatList=selectedSeats.map(s=>s.label).join(', ');
+    const totalAmt='$'+(selectedSeats.length*SECTIONS[selTier].price);
+    const progLink=C.progUrl+'?show='+selShowId;
+    emailjs.send(C.serviceId,C.templateId,{
       guest_name:first+' '+last,
       guest_email:email,
       confirmation_number:ref,
@@ -1082,9 +985,8 @@ function gs(step,reset){
       total_price:totalAmt,
     })
     .then(()=>{
-      // Email 2 — programme notification (if template ID set)
-      if(C.progTemplateId) {
-        return emailjs.send(C.serviceId, C.progTemplateId, {
+      if(C.progTemplateId){
+        return emailjs.send(C.serviceId,C.progTemplateId,{
           guest_name:first+' '+last,
           guest_email:email,
           show_title:showName,
@@ -1092,15 +994,8 @@ function gs(step,reset){
         });
       }
     })
-    .then(()=>{
-      $('st-send').style.display='none';
-      $('st-conf').style.display='block';
-    })
-    .catch(err=>{
-      console.error(err);
-      $('st-send').style.display='none';
-      $('st-err').style.display='block';
-    });
+    .then(()=>{ $('st-send').style.display='none'; $('st-conf').style.display='block'; })
+    .catch(err=>{ console.error(err); $('st-send').style.display='none'; $('st-err').style.display='block'; });
   }
 }
 </script>
